@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+	<rect width="800" height="600" fill="#3a2317"/>
+	<rect x="476" y="118" width="248" height="28" rx="14" fill="#e8a25b"/>
+	<path d="M500 146h200l-46 140H546z" fill="#f3e3cb"/>
+	<rect x="566" y="286" width="68" height="24" rx="6" fill="#e8a25b"/>
+	<circle cx="600" cy="344" r="9" fill="#e8a25b"/>
+	<circle cx="600" cy="378" r="6" fill="#e8a25b"/>
+	<path d="M516 408h168v62a56 56 0 0 1-56 56h-56a56 56 0 0 1-56-56z" fill="#f3e3cb"/>
+	<path d="M684 428h14a27 27 0 0 1 0 54h-14" fill="none" stroke="#f3e3cb" stroke-width="14"/>
+	<g font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+		<text x="48" y="250" font-size="136" font-weight="900" letter-spacing="-5" fill="#f3e3cb">핸드</text>
+		<text x="48" y="388" font-size="136" font-weight="900" letter-spacing="-5" fill="#f3e3cb">드립</text>
+		<text x="56" y="452" font-size="30" font-weight="600" fill="#e8a25b">처음 배우는 클래스</text>
+	</g>
+</svg>

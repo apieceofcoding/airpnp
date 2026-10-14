@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+	<rect width="800" height="600" fill="#efe5cf"/>
+	<g transform="rotate(-8 590 320)">
+		<rect x="466" y="140" width="250" height="340" rx="10" fill="#1f4d3a"/>
+		<rect x="490" y="140" width="10" height="340" fill="#16382a"/>
+		<rect x="536" y="206" width="136" height="10" rx="5" fill="#efe5cf"/>
+		<rect x="536" y="232" width="92" height="10" rx="5" fill="#efe5cf"/>
+		<path d="M654 140h34v124l-17-17-17 17z" fill="#e5372b"/>
+	</g>
+	<text x="50" y="256" font-family="'Noto Serif KR', AppleMyungjo, 'Nanum Myeongjo', serif" font-size="150" font-weight="700" letter-spacing="-4" fill="#1f2a24">느린</text>
+	<text x="50" y="410" font-family="'Noto Serif KR', AppleMyungjo, 'Nanum Myeongjo', serif" font-size="150" font-weight="700" letter-spacing="-4" fill="#1f2a24">독서</text>
+	<text x="58" y="478" font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif" font-size="30" font-weight="600" fill="#1f4d3a">한 달에 한 권</text>
+</svg>

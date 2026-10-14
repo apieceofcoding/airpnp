@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+	<rect width="800" height="600" fill="#d7ebf5"/>
+	<circle cx="704" cy="112" r="46" fill="#ffd60a"/>
+	<path d="M0 470l150-150 110 90 140-180 150 160 90-70 160 150v130H0z" fill="#8cc0a0"/>
+	<path d="M0 510l120-90 130 70 150-130 170 120 110-60 120 90v90H0z" fill="#4e9070"/>
+	<path d="M0 560l200-70 180 50 200-80 220 100v40H0z" fill="#2c6a4f"/>
+	<g font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+		<text x="48" y="150" font-size="100" font-weight="900" letter-spacing="-4" fill="#143d2b">북한산 둘레길</text>
+		<text x="56" y="204" font-size="30" font-weight="600" fill="#2c6a4f">천천히 걷는 두 시간 반</text>
+	</g>
+</svg>

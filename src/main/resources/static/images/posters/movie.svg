@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+	<rect width="800" height="600" fill="#26163f"/>
+	<path d="M150 500L430 110h320v220H430z" fill="#ffd60a" opacity="0.14"/>
+	<rect x="430" y="110" width="320" height="220" rx="12" fill="#f6efe0"/>
+	<circle cx="668" cy="186" r="34" fill="#ff8fb1"/>
+	<path d="M430 318v-44l76-64 70 52 60-40 114 82v14a12 12 0 0 1-12 12H442a12 12 0 0 1-12-12z" fill="#6b4fa0"/>
+	<rect x="70" y="474" width="124" height="64" rx="14" fill="#ff8fb1"/>
+	<circle cx="100" cy="456" r="26" fill="#ff8fb1"/>
+	<circle cx="160" cy="456" r="26" fill="#ff8fb1"/>
+	<circle cx="100" cy="456" r="9" fill="#26163f"/>
+	<circle cx="160" cy="456" r="9" fill="#26163f"/>
+	<g font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+		<text x="46" y="200" font-size="140" font-weight="900" letter-spacing="-5" fill="#fff">영화</text>
+		<text x="46" y="340" font-size="140" font-weight="900" letter-spacing="-5" fill="#fff">수다</text>
+		<text x="434" y="388" font-size="30" font-weight="600" fill="#ff8fb1">보고 나서 한 시간</text>
+	</g>
+</svg>

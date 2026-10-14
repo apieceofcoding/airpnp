@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+	<rect width="800" height="600" fill="#e5372b"/>
+	<g transform="rotate(-12 560 210)">
+		<rect x="470" y="120" width="180" height="180" rx="34" fill="#fff"/>
+		<g fill="#17171a">
+			<circle cx="518" cy="168" r="16"/>
+			<circle cx="602" cy="168" r="16"/>
+			<circle cx="560" cy="210" r="16"/>
+			<circle cx="518" cy="252" r="16"/>
+			<circle cx="602" cy="252" r="16"/>
+		</g>
+	</g>
+	<g transform="rotate(14 660 410)">
+		<rect x="590" y="340" width="140" height="140" rx="28" fill="#ffd60a"/>
+		<g fill="#17171a">
+			<circle cx="630" cy="380" r="13"/>
+			<circle cx="690" cy="440" r="13"/>
+		</g>
+	</g>
+	<g font-family="Pretendard, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif">
+		<text x="46" y="310" font-size="156" font-weight="900" letter-spacing="-6" fill="#fff">한 판</text>
+		<text x="46" y="456" font-size="156" font-weight="900" letter-spacing="-6" fill="#fff">더?</text>
+		<text x="56" y="532" font-size="30" font-weight="700" fill="#ffd60a">퇴근 후 보드게임</text>
+	</g>
+</svg>
