@@ -1,6 +1,6 @@
 # airpnp-web (숙소 예약 서비스 화면)
 
-예제 서비스 airpnp의 화면입니다. 서버 API는 [airpnp-server](../airpnp-server/README.md)에 있어요. React 없이 HTML, CSS와 TypeScript로 만들고, 개발 서버와 빌드는 [Vite](https://vite.dev)를 사용합니다.
+예제 서비스 airpnp의 화면입니다. 서버 API는 [airpnp-server](../airpnp-server/README.md)에 있어요. React와 TypeScript로 만들고, 개발 서버와 빌드는 [Vite](https://vite.dev)를 사용합니다.
 
 ## 실행
 
@@ -31,11 +31,15 @@ npm run build
 
 | 파일 | 역할 |
 |---|---|
-| `index.html`, `src/app.ts` | 목록 화면. 받아 온 숙소를 바다 전망, 한옥, 전체 줄로 나눠 보여 줌 |
-| `stay.html`, `src/stay.ts` | 상세 화면, 예약 달력과 예약 카드 |
-| `src/api.ts` | 서버 API 주소와 응답 타입(`Stay`, `Booking`) |
-| `src/common.ts`, `src/style.css` | 두 화면이 함께 쓰는 요소 찾기, 금액과 날짜 표시, 스타일 |
+| `index.html`, `src/home.tsx` | 목록 화면. 숙소를 바다 전망, 한옥, 전체 줄로 나눠 보여 줌 |
+| `stay.html`, `src/stay.tsx` | 상세 화면과 예약 카드 |
+| `src/Calendar.tsx` | 예약 달력 |
+| `src/api.ts` | 서버 주소, 응답 타입, 실패 이유를 알려 주는 요청 함수 |
+| `src/format.ts`, `src/layout.tsx` | 금액과 날짜 표시, 헤더와 푸터 |
+| `src/style.css` | 스타일 |
 | `public/images` | 로고, 숙소 대표 그림 9장과 방 그림 4장 |
 | `vite.config.ts` | 두 화면(`index.html`, `stay.html`)의 빌드 설정 |
+
+서버가 숙소의 `id`, `title`, `imageUrl`, `pricePerNight`만 줘도 화면이 뜨고, 응답에 필드가 늘어날수록 화면이 채워집니다. 서버가 꺼져 있거나 아직 없는 API를 부르면 화면에 그 이유를 보여줘요.
 
 화면은 예약된 날짜를 달력에서 막고 겹치면 예약하기 버튼을 끕니다. 서버는 화면을 거치지 않은 요청을 따로 확인하지 않아요. 이 차이는 백엔드 커리큘럼에서 직접 재현합니다.

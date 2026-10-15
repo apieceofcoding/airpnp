@@ -1,8 +1,7 @@
 // 화면과 서버가 따로 배포되므로 서버 주소를 환경마다 지정합니다.
 export const API_URL = import.meta.env.VITE_API_URL ?? 'http://localhost:8080';
 
-// 1편은 서버가 id, title, imageUrl, pricePerNight만 줘도 화면이 뜹니다.
-// 나머지 필드는 편이 진행되면서 서버 응답에 추가되고, 추가되는 만큼 화면이 채워져요.
+// 편이 진행되며 서버가 필드를 하나씩 늘려 가므로 필수 필드 외에는 없어도 화면이 뜹니다.
 export interface Stay {
 	id: number;
 	title: string;
@@ -26,20 +25,21 @@ export interface Stay {
 }
 
 export interface Booking {
-	id: number;
-	stayId: number;
-	guestName: string;
 	checkIn: string;
 	checkOut: string;
-	guests: number;
 	totalPrice: number;
 }
 
-// 서버가 꺼져 있으면 fetch가 예외를 던지므로, 응답이 없는 경우를 null로 구분합니다.
-export async function request(url: string, init?: RequestInit): Promise<Response | null> {
-	try {
-		return await fetch(url, init);
-	} catch {
-		return null;
+export async function api<T>(path: string, init?: RequestInit): Promise<T> {
+	const request = `${init?.method ?? 'GET'} ${path}`;
+	const response = await fetch(`${API_URL}${path}`, init).catch(() => {
+		throw new Error(`서버에 연결할 수 없어요. airpnp-server가 ${API_URL}에서 실행 중인지 확인해 주세요.`);
+	});
+	if (response.status === 404) {
+		throw new Error(`${request}: 서버에 아직 없는 API이거나 없는 데이터예요. (404)`);
 	}
+	if (!response.ok) {
+		throw new Error(`${request}: 서버가 ${response.status}로 응답했어요.`);
+	}
+	return response.json();
 }
