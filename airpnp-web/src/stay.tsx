@@ -1,6 +1,6 @@
 import { StrictMode, useCallback, useEffect, useState, type FormEvent, type ReactNode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { api, type Booking, type Stay } from './api';
+import { api, type ApiError, type Booking, type Stay } from './api';
 import { Calendar } from './Calendar';
 import { formatRange, formatRating, formatWon, nightsBetween, parseDate } from './format';
 import { ErrorMessage, Footer, Header, Icon, icons } from './layout';
@@ -20,15 +20,16 @@ const rooms = [
 function StayPage() {
 	const [stay, setStay] = useState<Stay>();
 	const [bookings, setBookings] = useState<Booking[]>([]);
-	const [error, setError] = useState('');
+	const [error, setError] = useState<ApiError>();
 	const [status, setStatus] = useState({ message: '', isError: false });
 	const [checkIn, setCheckIn] = useState(params.get('check_in'));
 	const [checkOut, setCheckOut] = useState(params.get('check_out'));
 	const [guestName, setGuestName] = useState('');
 	const [guests, setGuests] = useState(1);
 
+	// 예약 API가 아직 없거나 실패해도 예약 내역을 비워 두고 상세 화면은 그립니다.
 	const loadBookings = useCallback(() => {
-		api<Booking[]>(`${stayPath}/bookings`).then(setBookings, (e: Error) => setStatus({ message: e.message, isError: true }));
+		api<Booking[]>(`${stayPath}/bookings`).then(setBookings, () => setBookings([]));
 	}, []);
 
 	useEffect(() => {
@@ -38,11 +39,11 @@ function StayPage() {
 			setCheckIn((value) => value ?? loaded.nextCheckIn ?? null);
 			setCheckOut((value) => value ?? loaded.nextCheckOut ?? null);
 			loadBookings();
-		}, (e: Error) => setError(e.message));
+		}, setError);
 	}, [loadBookings]);
 
 	if (error) {
-		return <Page><ErrorMessage message={error} /></Page>;
+		return <Page><ErrorMessage error={error} /></Page>;
 	}
 	if (!stay) {
 		return <Page />;
@@ -78,7 +79,7 @@ function StayPage() {
 			setCheckIn(null);
 			setCheckOut(null);
 		} catch (e) {
-			setStatus({ message: (e as Error).message, isError: true });
+			setStatus({ message: `예약하지 못했어요. ${(e as Error).message}`, isError: true });
 		}
 		loadBookings();
 	};

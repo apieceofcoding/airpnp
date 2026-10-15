@@ -1,6 +1,6 @@
 import { StrictMode, useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { api, type Stay } from './api';
+import { api, type ApiError, type Stay } from './api';
 import { formatRange, formatRating, formatWon, nightsBetween, shortTitle } from './format';
 import { ErrorMessage, Footer, Header, Icon, icons } from './layout';
 import './style.css';
@@ -13,16 +13,16 @@ const tabs = [
 
 function Home() {
 	const [stays, setStays] = useState<Stay[]>([]);
-	const [error, setError] = useState('');
+	const [error, setError] = useState<ApiError>();
 
 	useEffect(() => {
-		api<Stay[]>('/api/stays').then(setStays, (e: Error) => setError(e.message));
+		api<Stay[]>('/api/stays').then(setStays, setError);
 	}, []);
 
 	const rows: [string, Stay[]][] = [
 		['바다가 보이는 숙소', stays.filter((stay) => stay.amenities?.includes('바다 전망'))],
 		['한옥에서 보내는 하룻밤', stays.filter((stay) => stay.stayType?.startsWith('한옥'))],
-		['예약 가능한 숙소', stays],
+		[stays.some((stay) => stay.nextCheckIn) ? '다음 주에 예약 가능한 숙소' : '모든 숙소', stays],
 	];
 
 	return (
@@ -40,7 +40,7 @@ function Home() {
 				</nav>
 			</Header>
 			<main className="container home">
-				{error && <ErrorMessage message={error} />}
+				{error && <ErrorMessage error={error} />}
 				{rows.filter(([, list]) => list.length > 0).map(([title, list]) => (
 					<StayRow key={title} title={title} stays={list} />
 				))}
@@ -108,7 +108,7 @@ function StayCard({ stay }: { stay: Stay }) {
 			<p className="card-title">{shortTitle(stay)}</p>
 			{nights > 0 && <p className="card-dates">{formatRange(checkIn!, checkOut!)}</p>}
 			<p className="card-price">
-				<span>{nights > 0 ? `${nights}박 총액 ${formatWon(stay.pricePerNight * nights)}` : `${formatWon(stay.pricePerNight)} /박`}</span>
+				<span>{nights > 0 ? `${nights}박 총액 ${formatWon(stay.pricePerNight * nights)}` : `1박 ${formatWon(stay.pricePerNight)}`}</span>
 				{stay.rating !== undefined && <span>★ {formatRating(stay.rating)}</span>}
 			</p>
 		</a>

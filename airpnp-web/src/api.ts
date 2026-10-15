@@ -30,16 +30,19 @@ export interface Booking {
 	totalPrice: number;
 }
 
-export async function api<T>(path: string, init?: RequestInit): Promise<T> {
-	const request = `${init?.method ?? 'GET'} ${path}`;
-	const response = await fetch(`${API_URL}${path}`, init).catch(() => {
-		throw new Error(`서버에 연결할 수 없어요. airpnp-server가 ${API_URL}에서 실행 중인지 확인해 주세요.`);
-	});
-	if (response.status === 404) {
-		throw new Error(`${request}: 서버에 아직 없는 API이거나 없는 데이터예요. (404)`);
+// 화면에 실패 이유를 제목과 설명으로 보여 주기 위한 오류입니다.
+export class ApiError extends Error {
+	constructor(readonly title: string, message: string) {
+		super(message);
 	}
+}
+
+export async function api<T>(path: string, init?: RequestInit): Promise<T> {
+	const response = await fetch(`${API_URL}${path}`, init).catch(() => {
+		throw new ApiError('서버에 연결할 수 없어요', `${API_URL}에서 응답이 없습니다. 서버가 켜져 있는지 확인해 주세요.`);
+	});
 	if (!response.ok) {
-		throw new Error(`${request}: 서버가 ${response.status}로 응답했어요.`);
+		throw new ApiError('숙소를 불러오지 못했어요', `서버가 ${response.status}로 응답했습니다.`);
 	}
 	return response.json();
 }

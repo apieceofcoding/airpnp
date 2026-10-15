@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { ApiError } from './api';
 
 export function Icon({ d, className = 'icon' }: { d: string; className?: string }) {
 	return (
@@ -48,11 +49,11 @@ export function Footer() {
 	);
 }
 
-export function ErrorMessage({ message }: { message: string }) {
+export function ErrorMessage({ error }: { error: ApiError }) {
 	return (
 		<div className="load-error">
-			<h1>화면을 불러오지 못했어요</h1>
-			<p>{message}</p>
+			<h1>{error.title}</h1>
+			<p>{error.message}</p>
 		</div>
 	);
 }
