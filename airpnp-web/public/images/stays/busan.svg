@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 760">
+	<defs>
+		<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1b1f4b"/><stop offset=".6" stop-color="#5a3f7d"/><stop offset="1" stop-color="#e98d6b"/></linearGradient>
+		<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b2f5e"/><stop offset="1" stop-color="#151836"/></linearGradient>
+	</defs>
+	<rect width="800" height="760" fill="url(#sky)"/>
+	<g fill="#fff" opacity=".8"><circle cx="90" cy="80" r="2"/><circle cx="240" cy="50" r="1.6"/><circle cx="420" cy="90" r="2"/><circle cx="610" cy="60" r="1.6"/><circle cx="720" cy="120" r="2"/></g>
+	<rect y="380" width="800" height="380" fill="url(#sea)"/>
+	<path d="M0 360h800v26H0z" fill="#2d2c52"/>
+	<g fill="none" stroke="#8fd4ff" stroke-width="3"><path d="M40 330q140-140 280 0M320 330q140-140 280 0M600 330q100-100 200-20"/></g>
+	<g stroke="#8fd4ff" stroke-width="2" opacity=".7"><path d="M80 300v30M120 270v60M160 250v80M200 245v85M240 255v75M280 285v45M360 300v30M400 270v60M440 250v80M480 245v85M520 255v75M560 285v45"/></g>
+	<path d="M0 330h800" stroke="#d6f0ff" stroke-width="5"/>
+	<g fill="#c06df0" opacity=".5"><rect x="0" y="390" width="800" height="4"/><rect x="60" y="420" width="680" height="3"/></g>
+	<rect y="560" width="800" height="200" fill="#3a2f2a"/>
+	<path d="M0 560h800" stroke="#fff" stroke-width="6" opacity=".9"/>
+	<g fill="#fff" opacity=".85"><rect x="40" y="520" width="8" height="40"/><rect x="200" y="520" width="8" height="40"/><rect x="360" y="520" width="8" height="40"/><rect x="520" y="520" width="8" height="40"/><rect x="680" y="520" width="8" height="40"/></g>
+	<path d="M30 524h740" stroke="#fff" stroke-width="5" opacity=".85"/>
+	<g fill="#ffd27a"><circle cx="110" cy="600" r="6"/><circle cx="260" cy="600" r="6"/><circle cx="410" cy="600" r="6"/><circle cx="560" cy="600" r="6"/><circle cx="710" cy="600" r="6"/></g>
+	<path d="M110 600Q185 620 260 600T410 600 560 600 710 600" stroke="#ffd27a" stroke-width="1.5" fill="none"/>
+	<rect x="420" y="640" width="260" height="22" rx="8" fill="#e2d6c8"/>
+	<rect x="440" y="662" width="12" height="60" fill="#8a6e57"/><rect x="648" y="662" width="12" height="60" fill="#8a6e57"/>
+	<rect x="120" y="630" width="210" height="70" rx="20" fill="#d9cfc4"/>
+	<rect x="140" y="608" width="70" height="40" rx="12" fill="#f0a35e"/>
+</svg>

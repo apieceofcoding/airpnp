@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 760">
+	<defs>
+		<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#69b7ef"/><stop offset="1" stop-color="#c9e9fb"/></linearGradient>
+		<linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1f7fc0"/><stop offset="1" stop-color="#39a6d6"/></linearGradient>
+	</defs>
+	<rect width="800" height="760" fill="url(#sky)"/>
+	<g fill="#fff" opacity=".9"><ellipse cx="160" cy="110" rx="70" ry="22"/><ellipse cx="610" cy="80" rx="90" ry="24"/></g>
+	<rect y="250" width="800" height="200" fill="url(#sea)"/>
+	<path d="M560 250q60-40 120-20t120 10v10z" fill="#4a7a6a"/>
+	<g fill="#8fc06a"><path d="M0 760V520q200-40 400-10t400-40v290z"/></g>
+	<g fill="none" stroke="#6f9f4f" stroke-width="5"><path d="M0 580q200-40 400-10t400-40M0 640q200-40 400-10t400-40M0 700q200-40 400-10t400-40"/></g>
+	<rect x="230" y="320" width="340" height="200" fill="#fdfdfb"/>
+	<path d="M210 330h380l-30-50H240z" fill="#e65f3c"/>
+	<rect x="250" y="360" width="90" height="80" fill="#9fd4f2"/>
+	<rect x="460" y="360" width="90" height="80" fill="#9fd4f2"/>
+	<rect x="365" y="390" width="70" height="130" fill="#4a7ea8"/>
+	<g stroke="#fff" stroke-width="5"><path d="M295 360v80M250 400h90M505 360v80M460 400h90"/></g>
+	<rect x="200" y="510" width="400" height="20" fill="#d7cfc3"/>
+	<g fill="#fff"><rect x="610" y="470" width="80" height="10" rx="5"/></g>
+	<path d="M620 480v40M680 480v40" stroke="#fff" stroke-width="6"/>
+	<circle cx="150" cy="470" r="38" fill="#5a9446"/><rect x="144" y="470" width="12" height="50" fill="#7a5a3a"/>
+</svg>

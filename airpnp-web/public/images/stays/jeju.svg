@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 760">
+	<defs>
+		<linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7cc0ea"/><stop offset="1" stop-color="#d9eefa"/></linearGradient>
+	</defs>
+	<rect width="800" height="760" fill="url(#sky)"/>
+	<path d="M0 330 210 180q60-40 120 0l170 110 300-40v80H0z" fill="#7c9a8a" opacity=".55"/>
+	<rect y="330" width="800" height="430" fill="#7fae5a"/>
+	<g fill="#3f7a35">
+		<circle cx="70" cy="380" r="44"/><circle cx="160" cy="370" r="40"/><circle cx="650" cy="372" r="42"/><circle cx="740" cy="384" r="46"/>
+	</g>
+	<g fill="#ff9a1f"><circle cx="58" cy="370" r="7"/><circle cx="90" cy="392" r="7"/><circle cx="150" cy="360" r="7"/><circle cx="640" cy="364" r="7"/><circle cx="672" cy="384" r="7"/><circle cx="752" cy="372" r="7"/></g>
+	<path d="M200 470 400 330l200 140z" fill="#33454f"/>
+	<path d="M190 474 400 324l210 150" fill="none" stroke="#25333b" stroke-width="12" stroke-linejoin="round"/>
+	<rect x="225" y="470" width="350" height="170" fill="#8d8a83"/>
+	<g fill="#6e6b65"><circle cx="250" cy="500" r="16"/><circle cx="300" cy="530" r="18"/><circle cx="260" cy="580" r="17"/><circle cx="540" cy="505" r="16"/><circle cx="500" cy="560" r="18"/><circle cx="550" cy="600" r="15"/><circle cx="330" cy="610" r="14"/></g>
+	<rect x="355" y="520" width="90" height="120" fill="#5b3b25"/>
+	<rect x="365" y="530" width="70" height="100" fill="#f3c27a" opacity=".85"/>
+	<rect x="460" y="510" width="60" height="50" fill="#f3c27a" opacity=".85"/>
+	<rect x="275" y="510" width="60" height="50" fill="#f3c27a" opacity=".85"/>
+	<path d="M0 650h800v110H0z" fill="#6f9b4c"/>
+	<g fill="#7a766e"><rect x="0" y="640" width="190" height="56" rx="20"/><rect x="610" y="640" width="190" height="56" rx="20"/></g>
+	<g fill="#5f5b54"><circle cx="30" cy="660" r="14"/><circle cx="80" cy="672" r="15"/><circle cx="130" cy="658" r="13"/><circle cx="660" cy="664" r="15"/><circle cx="720" cy="672" r="13"/><circle cx="770" cy="658" r="14"/></g>
+	<path d="M330 760l40-110h60l40 110z" fill="#d8c7a3"/>
+</svg>

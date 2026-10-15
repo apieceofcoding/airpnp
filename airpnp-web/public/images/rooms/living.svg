@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+	<rect width="800" height="600" fill="#f2ede6"/>
+	<rect x="480" y="70" width="240" height="300" fill="#bfe0f2"/>
+	<g stroke="#fff" stroke-width="10" fill="none"><rect x="480" y="70" width="240" height="300"/><path d="M600 70v300"/></g>
+	<rect y="430" width="800" height="170" fill="#b98e65"/>
+	<rect x="80" y="330" width="360" height="110" rx="26" fill="#7f9c8c"/>
+	<rect x="80" y="290" width="360" height="70" rx="24" fill="#8fae9d"/>
+	<rect x="110" y="300" width="90" height="56" rx="14" fill="#f0c99a"/>
+	<rect x="200" y="470" width="260" height="14" rx="7" fill="#6e4b31"/>
+	<path d="M220 484v50M440 484v50" stroke="#6e4b31" stroke-width="8"/>
+	<rect x="300" y="444" width="40" height="26" rx="4" fill="#fff"/>
+	<ellipse cx="320" cy="560" rx="260" ry="26" fill="#e8dccb"/>
+	<path d="M90 120h220v140H90z" fill="#e7a76b"/>
+	<circle cx="200" cy="190" r="40" fill="#f6d39f"/>
+	<path d="M700 430q-40-80 0-150 40 70 0 150" fill="#5f8f4c"/>
+	<rect x="680" y="410" width="40" height="30" rx="4" fill="#c6a07a"/>
+</svg>
