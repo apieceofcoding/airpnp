@@ -1,6 +1,6 @@
 import { StrictMode, useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
-import { api, type ApiError, type Stay } from './api';
+import { api, ApiError, type Stay } from './api';
 import { formatRange, formatRating, formatWon, nightsBetween, shortTitle } from './format';
 import { ErrorMessage, Footer, Header, Icon, icons } from './layout';
 import './style.css';
@@ -12,17 +12,18 @@ const tabs = [
 ];
 
 function Home() {
-	const [stays, setStays] = useState<Stay[]>([]);
+	const [stays, setStays] = useState<Stay[]>();
 	const [error, setError] = useState<ApiError>();
 
 	useEffect(() => {
 		api<Stay[]>('/api/stays').then(setStays, setError);
 	}, []);
 
+	const all = stays ?? [];
 	const rows: [string, Stay[]][] = [
-		['바다가 보이는 숙소', stays.filter((stay) => stay.amenities?.includes('바다 전망'))],
-		['한옥에서 보내는 하룻밤', stays.filter((stay) => stay.stayType?.startsWith('한옥'))],
-		[stays.some((stay) => stay.nextCheckIn) ? '다음 주에 예약 가능한 숙소' : '모든 숙소', stays],
+		['바다가 보이는 숙소', all.filter((stay) => stay.amenities?.includes('바다 전망'))],
+		['한옥에서 보내는 하룻밤', all.filter((stay) => stay.stayType?.startsWith('한옥'))],
+		[all.some((stay) => stay.nextCheckIn) ? '다음 주에 예약 가능한 숙소' : '모든 숙소', all],
 	];
 
 	return (
@@ -41,6 +42,7 @@ function Home() {
 			</Header>
 			<main className="container home">
 				{error && <ErrorMessage error={error} />}
+				{stays?.length === 0 && <ErrorMessage error={new ApiError('등록된 숙소가 없어요', '서버가 빈 목록을 보냈습니다.')} />}
 				{rows.filter(([, list]) => list.length > 0).map(([title, list]) => (
 					<StayRow key={title} title={title} stays={list} />
 				))}
