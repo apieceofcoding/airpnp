@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: airpnp-server
+  datasource:
+    url: jdbc:h2:mem:airpnp
+    username: sa
+    password: ""
+  h2:
+    console:
+      enabled: true
+  jpa:
+    # JPA가 테이블을 만든 뒤 숙소 9개를 자동으로 넣습니다.
+    defer-datasource-initialization: true
+    open-in-view: false
+  sql:
+    init:
+      mode: embedded
+      data-locations: classpath:sql/stays.sql
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+
+airpnp:
+  web-origin: http://localhost:5173
