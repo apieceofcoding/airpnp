@@ -27,4 +27,6 @@ public class Stay {
 
 	private int pricePerNight;
 
+	private double rating;
+
 }
