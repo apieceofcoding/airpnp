@@ -5,7 +5,8 @@ public record StayResponse(
     String title,
     String region,
     String imageUrl,
-    int pricePerNight
+    int pricePerNight,
+    double rating
 ) {
 
     public static StayResponse from(Stay stay) {
@@ -14,7 +15,8 @@ public record StayResponse(
             stay.getTitle(),
             stay.getRegion(),
             stay.getImageUrl(),
-            stay.getPricePerNight()
+            stay.getPricePerNight(),
+            stay.getRating()
         );
     }
 
