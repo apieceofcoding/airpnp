@@ -2,7 +2,7 @@ import { StrictMode, useCallback, useEffect, useState, type FormEvent, type Reac
 import { createRoot } from 'react-dom/client';
 import { api, type ApiError, type Booking, type Stay } from './api';
 import { Calendar } from './Calendar';
-import { formatRange, formatRating, formatWon, nightsBetween, parseDate } from './format';
+import { formatRange, formatWon, nightsBetween, parseDate } from './format';
 import { ErrorMessage, Footer, Header, Icon, icons } from './layout';
 import './style.css';
 
@@ -55,7 +55,7 @@ function StayPage() {
 	const nights = range ? nightsBetween(range.from, range.to) : 0;
 	const total = nights * stay.pricePerNight;
 	const overlap = range !== null && overlaps(range.from, range.to);
-	const city = stay.region?.split(',')[0] ?? stay.title;
+	const city = stay.address?.split(',')[0] ?? stay.title;
 
 	const selectDate = (iso: string) => {
 		if (checkIn && !checkOut && iso > checkIn && !overlaps(checkIn, iso)) {
@@ -102,19 +102,12 @@ function StayPage() {
 			<div className="detail-layout">
 				<article className="detail-main">
 					<section className="overview">
-						<h2>{stay.region && stay.stayType ? `${stay.region}의 ${stay.stayType}` : stay.title}</h2>
+						<h2>{stay.address && stay.stayType ? `${stay.address}의 ${stay.stayType}` : stay.title}</h2>
+						<p className="muted">{stay.address}</p>
 						<p className="rooms">
 							{rooms.filter(([key]) => stay[key] !== undefined).map(([key, label, unit]) => `${label} ${stay[key]}${unit}`).join(', ')}
 						</p>
 					</section>
-
-					{stay.rating !== undefined && (
-						<section className="favorite-box">
-							<p className="favorite-text">{stay.guestFavorite ? '게스트에게 가장 사랑받는 숙소' : '게스트 평점'}</p>
-							<div className="score"><strong>{formatRating(stay.rating)}</strong><span className="stars">★★★★★</span></div>
-							{stay.reviewCount !== undefined && <div className="score"><strong>{stay.reviewCount}개</strong><span>후기</span></div>}
-						</section>
-					)}
 
 					{stay.hostName && (
 						<section className="host-row">

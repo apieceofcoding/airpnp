@@ -7,7 +7,7 @@ export interface Stay {
 	title: string;
 	imageUrl: string;
 	pricePerNight: number;
-	region?: string;
+	address: string;
 	stayType?: string;
 	hostName?: string;
 	hostingYears?: number;
@@ -17,7 +17,6 @@ export interface Stay {
 	bedrooms?: number;
 	beds?: number;
 	bathrooms?: number;
-	rating?: number;
 	reviewCount?: number;
 	guestFavorite?: boolean;
 	nextCheckIn?: string;
@@ -42,7 +41,7 @@ export async function api<T>(path: string, init?: RequestInit): Promise<T> {
 		throw new ApiError('서버에 연결할 수 없어요', `${API_URL}에서 응답이 없습니다. 서버가 켜져 있는지 확인해 주세요.`);
 	});
 	if (!response.ok) {
-		throw new ApiError('숙소를 불러오지 못했어요', `서버가 ${response.status}로 응답했습니다.`);
+		throw new ApiError(init?.method === 'POST' ? '숙소를 등록하지 못했어요' : '숙소를 불러오지 못했어요', `서버가 ${response.status}로 응답했습니다. 입력한 내용과 서버 상태를 확인해 주세요.`);
 	}
 	return response.json();
 }

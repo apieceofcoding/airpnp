@@ -3,20 +3,18 @@ package com.apiece.airpnp;
 public record StayResponse(
     Long id,
     String title,
-    String region,
+    String address,
     String imageUrl,
-    int pricePerNight,
-    double rating
+    int pricePerNight
 ) {
 
     public static StayResponse from(Stay stay) {
         return new StayResponse(
             stay.getId(),
             stay.getTitle(),
-            stay.getRegion(),
+            stay.getAddress(),
             stay.getImageUrl(),
-            stay.getPricePerNight(),
-            stay.getRating()
+            stay.getPricePerNight()
         );
     }
 

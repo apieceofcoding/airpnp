@@ -27,10 +27,8 @@ export function formatRange(checkIn: string, checkOut: string): string {
 }
 
 export function shortTitle(stay: Stay): string {
-	if (!stay.region || !stay.stayType) {
+	if (!stay.address || !stay.stayType) {
 		return stay.title;
 	}
-	return `${stay.region.split(',')[0]}의 ${stay.stayType.replace(' 전체', '')}`;
+	return `${stay.address.split(',')[0]}의 ${stay.stayType.replace(' 전체', '')}`;
 }
-
-export const formatRating = (rating: number) => rating.toFixed(2).replace(/0$/, '');

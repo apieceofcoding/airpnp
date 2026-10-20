@@ -171,6 +171,7 @@ h2 {
 	padding: 10px 12px;
 	border-radius: 999px;
 	font-weight: 500;
+	white-space: nowrap;
 }
 
 .host-link:hover {
@@ -419,6 +420,41 @@ h2 {
 	font-size: 14px;
 	font-weight: 600;
 }
+
+.card-address { margin: 4px 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); font-size: 12px; }
+.registration-success { margin-bottom: 24px; padding: 16px 20px; border: 1px solid #b9d8c8; border-radius: 12px; background: #f1f8f4; color: #24583f; font-size: 15px; }
+
+/* 숙소 등록 */
+.hosting-page { flex: 1; padding-top: 32px !important; padding-bottom: 48px !important; }
+.hosting-heading { margin-bottom: 28px; }
+.hosting-eyebrow { margin-bottom: 8px; color: var(--brand); font-size: 14px; font-weight: 600; }
+.hosting-heading h1 { margin-bottom: 8px; font-size: 32px; font-weight: 650; letter-spacing: -0.04em; line-height: 1.25; }
+.hosting-heading > p:last-child { color: var(--muted); font-size: 17px; }
+.hosting-layout { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 80px; align-items: start; }
+.hosting-form { display: flex; flex-direction: column; gap: 20px; }
+.hosting-field { display: flex; flex-direction: column; gap: 8px; }
+.hosting-field > span { font-size: 16px; font-weight: 600; }
+.hosting-field input { width: 100%; min-width: 0; height: 54px; border: 1px solid #b0b0b0; border-radius: 12px; padding: 14px 16px; background: #fff; font-size: 16px; }
+.hosting-field input::placeholder { color: #8a8a8a; }
+.hosting-field input:focus { border-color: var(--ink); outline: 1px solid var(--ink); outline-offset: 0; }
+.hosting-price-input { position: relative; }
+.hosting-price-input input { padding-left: 42px; padding-right: 64px; }
+.hosting-price-input > span { position: absolute; top: 16px; color: var(--muted); font-size: 16px; pointer-events: none; }
+.hosting-price-input > span:first-child { left: 18px; }
+.hosting-price-input > span:last-child { right: 18px; }
+.hosting-note { color: var(--muted); font-size: 13px; line-height: 1.7; }
+.hosting-form-actions { display: flex; align-items: center; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--soft-line); }
+.hosting-cancel { font-size: 16px; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.hosting-submit { min-width: 180px; height: 54px; padding: 0 28px; border: 0; border-radius: 12px; background: var(--brand-gradient); color: #fff; font-size: 17px; font-weight: 600; }
+.hosting-submit:disabled { opacity: .55; cursor: wait; }
+.hosting-error { border-radius: 10px; padding: 12px 16px; background: #fff3f0; color: var(--error); font-size: 14px; }
+.hosting-preview { overflow: hidden; border: 1px solid var(--soft-line); border-radius: 20px; box-shadow: 0 12px 32px rgba(0, 0, 0, .06); }
+.hosting-preview-label { padding: 20px 24px; font-size: 15px; font-weight: 600; }
+.hosting-preview > img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; background: var(--surface); }
+.hosting-preview-copy { padding: 24px; overflow-wrap: anywhere; }
+.hosting-preview-copy h2 { margin-bottom: 8px; font-size: 20px; line-height: 1.4; }
+.hosting-preview-copy > p { color: var(--muted); font-size: 14px; }
+.hosting-preview-price { margin-top: 24px; font-size: 16px; }
 
 .card-dates,
 .card-price {
@@ -867,7 +903,6 @@ h2 {
 	}
 
 	.tabs,
-	.host-link,
 	.mini-search {
 		display: none;
 	}
@@ -922,4 +957,10 @@ h2 {
 		flex-direction: column;
 		align-items: flex-start;
 	}
+
+	.hosting-page { padding-top: 32px !important; padding-bottom: 40px !important; }
+	.hosting-heading h1 { font-size: 28px; }
+	.hosting-layout { grid-template-columns: 1fr; gap: 32px; }
+	.hosting-preview { max-width: 420px; }
+	.hosting-submit { min-width: 160px; }
 }

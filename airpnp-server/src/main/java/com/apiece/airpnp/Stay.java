@@ -1,5 +1,6 @@
 package com.apiece.airpnp;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -15,18 +16,29 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Stay {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-	private String title;
+    @Column(nullable = false, length = 80)
+    private String title;
 
-	private String region;
+    @Column(nullable = false, length = 200)
+    private String address;
 
-	private String imageUrl;
+    private String imageUrl;
 
-	private int pricePerNight;
+    private int pricePerNight;
 
-	private double rating;
+    public Stay(
+        String title,
+        String address,
+        int pricePerNight
+    ) {
+        this.title = title.trim();
+        this.address = address.trim();
+        this.pricePerNight = pricePerNight;
+        this.imageUrl = "/images/rooms/living.svg";
+    }
 
 }

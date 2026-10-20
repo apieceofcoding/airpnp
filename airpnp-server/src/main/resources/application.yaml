@@ -1,6 +1,9 @@
 spring:
   application:
     name: airpnp-server
+  jackson:
+    deserialization:
+      accept-float-as-int: false
   datasource:
     url: jdbc:h2:mem:airpnp
     username: sa

@@ -1,7 +1,7 @@
 import { StrictMode, useEffect, useRef, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { api, ApiError, type Stay } from './api';
-import { formatRange, formatRating, formatWon, nightsBetween, shortTitle } from './format';
+import { formatRange, formatWon, nightsBetween, shortTitle } from './format';
 import { ErrorMessage, Footer, Header, Icon, icons } from './layout';
 import './style.css';
 
@@ -19,7 +19,8 @@ function Home() {
 		api<Stay[]>('/api/stays').then(setStays, setError);
 	}, []);
 
-	const all = stays ?? [];
+	const all = [...(stays ?? [])].sort((a, b) => b.id - a.id);
+	const createdId = new URLSearchParams(location.search).get('created');
 	const rows: [string, Stay[]][] = [
 		['바다가 보이는 숙소', all.filter((stay) => stay.amenities?.includes('바다 전망'))],
 		['한옥에서 보내는 하룻밤', all.filter((stay) => stay.stayType?.startsWith('한옥'))],
@@ -41,6 +42,7 @@ function Home() {
 				</nav>
 			</Header>
 			<main className="container home">
+				{createdId && stays?.some((stay) => String(stay.id) === createdId) && <p className="registration-success" role="status">숙소가 등록됐어요. 목록에서 새 숙소를 확인해 보세요.</p>}
 				{error && <ErrorMessage error={error} />}
 				{stays?.length === 0 && <ErrorMessage error={new ApiError('등록된 숙소가 없어요', '서버가 빈 목록을 보냈습니다.')} />}
 				{rows.filter(([, list]) => list.length > 0).map(([title, list]) => (
@@ -108,10 +110,10 @@ function StayCard({ stay }: { stay: Stay }) {
 				</span>
 			</div>
 			<p className="card-title">{shortTitle(stay)}</p>
+			<p className="card-address">{stay.address}</p>
 			{nights > 0 && <p className="card-dates">{formatRange(checkIn!, checkOut!)}</p>}
 			<p className="card-price">
 				<span>{nights > 0 ? `${nights}박 총액 ${formatWon(stay.pricePerNight * nights)}` : `1박 ${formatWon(stay.pricePerNight)}`}</span>
-				{stay.rating !== undefined && <span>★ {formatRating(stay.rating)}</span>}
 			</p>
 		</a>
 	);

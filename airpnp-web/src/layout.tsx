@@ -18,7 +18,7 @@ export const icons = {
 	heart: 'M12 20c5-3.4 9-7.2 9-12a5 5 0 0 0-9-2.9A5 5 0 0 0 3 8c0 4.8 4 8.6 9 12z',
 };
 
-export function Header({ children, below, home = false }: { children: ReactNode; below?: ReactNode; home?: boolean }) {
+export function Header({ children, below, home = false, hosting = false }: { children?: ReactNode; below?: ReactNode; home?: boolean; hosting?: boolean }) {
 	return (
 		<header className={home ? 'site-header home-header' : 'site-header'}>
 			<div className={home ? 'container header-row' : 'container narrow header-row'}>
@@ -28,10 +28,10 @@ export function Header({ children, below, home = false }: { children: ReactNode;
 				</a>
 				{children}
 				<div className="header-actions">
-					<a className="host-link" href="/">호스트 되기</a>
-					<button className="round-button" type="button" aria-label="메뉴">
+					<a className="host-link" href={hosting ? "/" : "/host.html"}>{hosting ? "나가기" : "숙소 등록"}</a>
+					{!hosting && <button className="round-button" type="button" aria-label="메뉴">
 						<Icon d={icons.menu} />
-					</button>
+					</button>}
 				</div>
 			</div>
 			{below}

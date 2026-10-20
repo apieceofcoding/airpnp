@@ -9,6 +9,7 @@ export default defineConfig({
 			input: {
 				main: resolve(import.meta.dirname, 'index.html'),
 				stay: resolve(import.meta.dirname, 'stay.html'),
+				host: resolve(import.meta.dirname, 'host.html'),
 			},
 		},
 	},
