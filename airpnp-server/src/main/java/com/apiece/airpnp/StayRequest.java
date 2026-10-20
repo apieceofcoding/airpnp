@@ -1,6 +1,6 @@
 package com.apiece.airpnp;
 
-public record StayPreview(
+public record StayRequest(
     String title,
     int pricePerNight
 ) {}

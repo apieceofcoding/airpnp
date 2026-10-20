@@ -22,10 +22,10 @@ public class StayController {
 	}
 
     @PostMapping("/api/stays/preview")
-    public StayPreview preview(
-        @RequestBody StayPreview preview
+    public StayRequest preview(
+        @RequestBody StayRequest request
     ) {
-        return preview;
+        return request;
     }
 
 }
