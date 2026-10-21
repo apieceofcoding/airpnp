@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 편별 실습 코드를 git 태그로 관리합니다. 사용법은 EPISODES.md를 참고하세요.
+# 편별 실습 코드를 git 태그로 관리합니다. 사용법은 --help로 확인하세요.
 set -euo pipefail
 
 usage() {
