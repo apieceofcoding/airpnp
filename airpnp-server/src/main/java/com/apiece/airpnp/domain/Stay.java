@@ -1,4 +1,4 @@
-package com.apiece.airpnp;
+package com.apiece.airpnp.domain;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

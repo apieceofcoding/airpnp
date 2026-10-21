@@ -2,6 +2,14 @@
 
 airpnp의 스프링 부트 서버입니다. 화면은 [airpnp-web](../airpnp-web/README.md)에 있어요.
 
+## 3편 패키지
+
+- `web`: StayController, StayRequest, StayResponse, WebConfig.
+- `domain`: Stay, StayRepository.
+- AirpnpApplication은 상위 패키지에 두어 하위 컴포넌트를 탐색합니다.
+
+1편과 2편은 기존 패키지 구조를 유지해요.
+
 ## 실행
 
 Java 25가 필요합니다.

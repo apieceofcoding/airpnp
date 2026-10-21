@@ -1,4 +1,4 @@
-package com.apiece.airpnp;
+package com.apiece.airpnp.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

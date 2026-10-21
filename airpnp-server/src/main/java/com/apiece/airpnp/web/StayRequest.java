@@ -1,4 +1,4 @@
-package com.apiece.airpnp;
+package com.apiece.airpnp.web;
 
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.NotBlank;

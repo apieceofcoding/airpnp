@@ -1,4 +1,6 @@
-package com.apiece.airpnp;
+package com.apiece.airpnp.web;
+
+import com.apiece.airpnp.domain.Stay;
 
 public record StayResponse(
     Long id,

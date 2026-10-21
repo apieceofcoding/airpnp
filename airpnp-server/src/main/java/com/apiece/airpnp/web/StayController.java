@@ -1,4 +1,7 @@
-package com.apiece.airpnp;
+package com.apiece.airpnp.web;
+
+import com.apiece.airpnp.domain.Stay;
+import com.apiece.airpnp.domain.StayRepository;
 
 import java.net.URI;
 import java.util.List;

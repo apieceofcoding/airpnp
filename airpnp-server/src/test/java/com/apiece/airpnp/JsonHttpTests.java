@@ -1,5 +1,8 @@
 package com.apiece.airpnp;
 
+import com.apiece.airpnp.domain.Stay;
+import com.apiece.airpnp.domain.StayRepository;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.net.URI;
