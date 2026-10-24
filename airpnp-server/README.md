@@ -4,15 +4,18 @@ airpnp의 스프링 부트 서버입니다. 화면은 [airpnp-web](../airpnp-web
 
 ## 3편 패키지
 
-- `web`: StayController, StayRequest, StayResponse, WebConfig. HTTP 요청과 응답, DTO 변환을 처리합니다.
+- `web`: StayController, StayRequest, StayResponse. HTTP 요청과 응답, DTO 변환을 처리합니다.
 - `domain`: Stay, StayRepository, StayService. 숙소 조회와 등록을 처리하고 엔티티를 반환해요.
+- `config`: WebConfig. CORS 같은 웹 설정을 모읍니다.
 - AirpnpApplication은 상위 패키지에 두어 하위 컴포넌트를 탐색합니다.
 
 1편과 2편은 기존 패키지 구조를 유지해요.
 
 호출은 `Controller → Service → Repository` 순서입니다. Service는 Stay 엔티티를 반환하고, Controller가 StayResponse로 변환해 응답해요. 요청 DTO의 값도 Controller가 꺼내 Service에 전달합니다. domain은 web의 DTO를 참조하지 않아요.
 
-Controller와 Service의 주입 생성자는 Lombok `@RequiredArgsConstructor`로 만듭니다. Stay는 공백 정리와 기본 이미지 설정을 수행하는 생성자를 유지해요. WebConfig의 설정값은 `@Value`로 주입합니다.
+Controller와 Service의 주입 생성자는 Lombok `@RequiredArgsConstructor`로 만듭니다. Stay는 공백 정리와 기본 이미지 설정을 수행하는 생성자를 유지해요. `config/WebConfig`의 설정값은 `@Value`로 주입합니다.
+
+Spring Boot는 특정 패키지 이름을 강제하지 않습니다. 이 예제에서는 설정 클래스의 역할을 드러내도록 `config`에 분리했어요. 애플리케이션 클래스 아래에 있어 별도의 스캔 설정 없이 탐색됩니다. [공식 패키지 구성 안내](https://docs.spring.io/spring-boot/reference/using/structuring-your-code.html)
 
 ## 실행
 

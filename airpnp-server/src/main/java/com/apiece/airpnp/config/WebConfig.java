@@ -1,4 +1,4 @@
-package com.apiece.airpnp.web;
+package com.apiece.airpnp.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
