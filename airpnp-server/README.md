@@ -4,15 +4,15 @@ airpnp의 스프링 부트 서버입니다. 화면은 [airpnp-web](../airpnp-web
 
 ## 3편 패키지
 
-- `web`: StayController, WebConfig. HTTP 요청과 응답을 처리합니다.
-- `service`: StayService. 숙소 조회와 등록, 엔티티에서 응답 DTO로의 변환을 맡아요.
-- `dto`: StayRequest, StayResponse. Controller와 Service 사이에서 데이터를 전달합니다.
-- `domain`: Stay, StayRepository.
+- `web`: StayController, StayRequest, StayResponse, WebConfig. HTTP 요청과 응답, DTO 변환을 처리합니다.
+- `domain`: Stay, StayRepository, StayService. 숙소 조회와 등록을 처리하고 엔티티를 반환해요.
 - AirpnpApplication은 상위 패키지에 두어 하위 컴포넌트를 탐색합니다.
 
 1편과 2편은 기존 패키지 구조를 유지해요.
 
-호출은 `Controller → Service → Repository` 순서입니다. Controller는 Repository와 엔티티에 직접 접근하지 않고 Service와 DTO를 주고받아요. Service가 Repository에서 받은 Stay를 StayResponse로 변환합니다. JSON 직렬화는 웹 계층에서 처리해요.
+호출은 `Controller → Service → Repository` 순서입니다. Service는 Stay 엔티티를 반환하고, Controller가 StayResponse로 변환해 응답해요. 요청 DTO의 값도 Controller가 꺼내 Service에 전달합니다. domain은 web의 DTO를 참조하지 않아요.
+
+Controller와 Service의 주입 생성자는 Lombok `@RequiredArgsConstructor`로 만듭니다. Stay는 공백 정리와 기본 이미지 설정을 수행하는 생성자를 유지해요. WebConfig의 설정값은 `@Value`로 주입합니다.
 
 ## 실행
 
@@ -26,7 +26,6 @@ Java 25가 필요합니다.
 |---|---|
 | http://localhost:8080/api/stays | 숙소 목록 API |
 | POST http://localhost:8080/api/stays | 이름, 주소, 1박 가격으로 숙소 등록 |
-| http://localhost:8080/api/stays/{id} | 숙소 상세 API |
 | http://localhost:8080/h2-console | DB 조회 (JDBC URL `jdbc:h2:mem:airpnp`, 사용자 `sa`, 비밀번호 없음) |
 
 2편부터 application.yaml 설정으로 테이블 생성 후 숙소 9개를 자동 입력합니다. H2는 메모리 DB라 서버를 재시작하면 추가한 숙소도 초기화돼요.

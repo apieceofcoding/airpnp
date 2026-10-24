@@ -76,9 +76,6 @@ class JsonHttpTests {
         assertThat(stayRepository.findById(id)).isPresent()
             .get().extracting(Stay::getAddress).isEqualTo("강릉시 해안로 123");
 
-        HttpResponse<String> detail = get("/api/stays/" + id);
-        assertThat(detail.statusCode()).isEqualTo(200);
-        assertThat(objectMapper.readTree(detail.body())).isEqualTo(json);
         assertThat(objectMapper.readTree(get("/api/stays").body()).size()).isEqualTo(countBefore + 1);
     }
 
@@ -112,11 +109,6 @@ class JsonHttpTests {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         assertThat(response.statusCode()).isEqualTo(200);
         assertThat(response.headers().firstValue("access-control-allow-origin")).hasValue("http://localhost:5173");
-    }
-
-    @Test
-    void missingStayReturnsNotFound() throws Exception {
-        assertThat(get("/api/stays/999999").statusCode()).isEqualTo(404);
     }
 
     private HttpResponse<String> get(String path) throws Exception {

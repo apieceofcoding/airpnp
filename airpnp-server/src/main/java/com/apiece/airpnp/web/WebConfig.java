@@ -8,11 +8,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-	private final String webOrigin;
-
-	public WebConfig(@Value("${airpnp.web-origin}") String webOrigin) {
-		this.webOrigin = webOrigin;
-	}
+	@Value("${airpnp.web-origin}")
+	private String webOrigin;
 
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
