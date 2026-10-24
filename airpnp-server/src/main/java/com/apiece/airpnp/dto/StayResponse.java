@@ -1,4 +1,4 @@
-package com.apiece.airpnp.web;
+package com.apiece.airpnp.dto;
 
 import com.apiece.airpnp.domain.Stay;
 

@@ -1,7 +1,8 @@
 package com.apiece.airpnp.web;
 
-import com.apiece.airpnp.domain.Stay;
-import com.apiece.airpnp.domain.StayRepository;
+import com.apiece.airpnp.dto.StayRequest;
+import com.apiece.airpnp.dto.StayResponse;
+import com.apiece.airpnp.service.StayService;
 
 import java.net.URI;
 import java.util.List;
@@ -20,23 +21,22 @@ import org.springframework.web.server.ResponseStatusException;
 @RestController
 public class StayController {
 
-    private final StayRepository stayRepository;
+    private final StayService stayService;
 
-    public StayController(StayRepository stayRepository) {
-        this.stayRepository = stayRepository;
+    public StayController(StayService stayService) {
+        this.stayService = stayService;
     }
 
     @GetMapping("/api/stays")
     public List<StayResponse> list() {
-        return stayRepository.findAll().stream().map(StayResponse::from).toList();
+        return stayService.list();
     }
 
     @GetMapping("/api/stays/{id}")
     public StayResponse get(
         @PathVariable Long id
     ) {
-        return stayRepository.findById(id)
-            .map(StayResponse::from)
+        return stayService.get(id)
             .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
@@ -44,14 +44,9 @@ public class StayController {
     public ResponseEntity<StayResponse> create(
         @Valid @RequestBody StayRequest request
     ) {
-        Stay stay = new Stay(
-            request.title(),
-            request.address(),
-            request.pricePerNight()
-        );
-        Stay saved = stayRepository.save(stay);
-        return ResponseEntity.created(URI.create("/api/stays/" + saved.getId()))
-            .body(StayResponse.from(saved));
+        StayResponse response = stayService.create(request);
+        return ResponseEntity.created(URI.create("/api/stays/" + response.id()))
+            .body(response);
     }
 
 }

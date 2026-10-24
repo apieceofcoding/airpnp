@@ -4,11 +4,15 @@ airpnp의 스프링 부트 서버입니다. 화면은 [airpnp-web](../airpnp-web
 
 ## 3편 패키지
 
-- `web`: StayController, StayRequest, StayResponse, WebConfig.
+- `web`: StayController, WebConfig. HTTP 요청과 응답을 처리합니다.
+- `service`: StayService. 숙소 조회와 등록, 엔티티에서 응답 DTO로의 변환을 맡아요.
+- `dto`: StayRequest, StayResponse. Controller와 Service 사이에서 데이터를 전달합니다.
 - `domain`: Stay, StayRepository.
 - AirpnpApplication은 상위 패키지에 두어 하위 컴포넌트를 탐색합니다.
 
 1편과 2편은 기존 패키지 구조를 유지해요.
+
+호출은 `Controller → Service → Repository` 순서입니다. Controller는 Repository와 엔티티에 직접 접근하지 않고 Service와 DTO를 주고받아요. Service가 Repository에서 받은 Stay를 StayResponse로 변환합니다. JSON 직렬화는 웹 계층에서 처리해요.
 
 ## 실행
 
